@@ -1,0 +1,16 @@
+
+Resources:
+  MyS3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: msk-bucket-week-retention-2025-08-28 # Change to a globally unique name
+      LifecycleConfiguration:
+        Rules:
+          - Id: RetainFor7Days
+            Status: Enabled
+            ExpirationInDays: 7
+
+Outputs:
+  BucketName:
+    Description: Name of the S3 bucket
+    Value: !Ref MyS3Bucket
